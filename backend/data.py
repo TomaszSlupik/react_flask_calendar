@@ -20,6 +20,8 @@ def getDate ():
 
     return jsonify(df_competition_json)
 
+
+
 if __name__ == '__main__':
     app.run()
 

@@ -6,20 +6,29 @@ function App() {
 
 
   const [test, setTest] = useState([])
+  const [testXlsx, setTestXlsx] = useState([])
 
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/api/dane_zawodow')
       .then(res => {
         setTest(JSON.parse(res.data))
-        console.log(test)
-        
+        console.log(res.data)
       })
       .catch(err => {
         console.log(err)
       })
   }, [])
 
-  console.log(test)
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:5000/api/dane_xlsx')
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
 
   return (
     <div className="App">
